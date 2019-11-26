@@ -1,6 +1,10 @@
-import React from 'react';
-import Link from 'next/link';
-import { Row, Col } from 'reactstrap';
+import React from 'react'
+import Link from 'next/link'
+import { Row, Col } from 'reactstrap'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { fab } from '@fortawesome/free-brands-svg-icons'
+import { library } from '@fortawesome/fontawesome-svg-core'
+library.add(fab)
 
 const About = () => (
 
@@ -9,7 +13,7 @@ const About = () => (
       <Row>
         <Col>
           <h1 className="mb-0">Anthony
-            <span className="text-primary">Sherwin</span>
+            <span className="text-primary"> Sherwin</span>
           </h1>
         </Col>
       </Row>
@@ -25,29 +29,17 @@ const About = () => (
           <p className="lead mb-5">I am experienced in leveraging agile frameworks to provide a robust synopsis for high level overviews. Iterative approaches to corporate strategy foster collaborative thinking to further the overall value proposition.</p>
         </Col>
       </Row>
-      <Row>
-      <div className="social-icons">
-        <Col>
+      <Row className="social-icons">
+        <Col xs="1" className="mr-3">
         <a href="#">
-          <i className="fab fa-linkedin-in"></i>
+          <FontAwesomeIcon icon={['fab', 'linkedin']} inverse className="w-50" />
         </a>
         </Col>
-        <Col>
+        <Col xs="1" className="mr-3">
         <a href="#">
-          <i className="fab fa-github"></i>
+          <FontAwesomeIcon icon={['fab', 'github']} className="w-50" />
         </a>
         </Col>
-        <Col>
-        <a href="#">
-          <i className="fab fa-twitter"></i>
-        </a>
-        </Col>
-        <Col>
-        <a href="#">
-          <i className="fab fa-facebook-f"></i>
-        </a>
-        </Col>
-      </div>
       </Row>
     </div>
   </section>

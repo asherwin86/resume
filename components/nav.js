@@ -7,9 +7,8 @@ import {
   Nav,
   NavItem,
   NavLink,
-
-
 } from 'reactstrap';
+import { ScrollspyNavLink } from 'reactstrap-scrollspy'
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -27,22 +26,34 @@ const Navigation = () => {
       <Collapse isOpen={isOpen} navbar>
         <Nav navbar>
           <NavItem>
-            <NavLink className="js-scroll-trigger" href="#about">About</NavLink>
+            <ScrollspyNavLink name="about">
+              <NavLink className="js-scroll-trigger" href="#about">About</NavLink>
+            </ScrollspyNavLink>
           </NavItem>
           <NavItem>
-            <NavLink className="js-scroll-trigger" href="#experience">Experience</NavLink>
+            <ScrollspyNavLink name="experience">
+              <NavLink className="js-scroll-trigger" href="#experience">Experience</NavLink>
+            </ScrollspyNavLink>
           </NavItem>
           <NavItem>
-            <NavLink className="js-scroll-trigger" href="#education">Education</NavLink>
+            <ScrollspyNavLink name="education">
+              <NavLink className="js-scroll-trigger" href="#education">Education</NavLink>
+            </ScrollspyNavLink>
           </NavItem>
           <NavItem>
-            <NavLink className="js-scroll-trigger" href="#skills">Skills</NavLink>
+            <ScrollspyNavLink name="skills">
+              <NavLink className="js-scroll-trigger" href="#skills">Skills</NavLink>
+            </ScrollspyNavLink>
           </NavItem>
           <NavItem>
-            <NavLink className="js-scroll-trigger" href="#interests">Interests</NavLink>
+            <ScrollspyNavLink name="interests">
+              <NavLink className="js-scroll-trigger" href="#interests">Interests</NavLink>
+            </ScrollspyNavLink>
           </NavItem>
           <NavItem>
-            <NavLink className="js-scroll-trigger" href="#awards">Awards</NavLink>
+            <ScrollspyNavLink name="awards">
+              <NavLink className="js-scroll-trigger" href="#awards">Awards</NavLink>
+            </ScrollspyNavLink>
           </NavItem>
         </Nav>
       </Collapse>
