@@ -1,0 +1,11 @@
+version: 2
+jobs:
+  build:
+    docker:
+      image: circleci/node:10.17.0
+    steps:
+      - checkout
+      - npm install
+      - npm run build
+      - npm install serverless -g
+      - serverless config credentials --provider $PROVIDER --key $PROVIDER_KEY --secret $PROVIDER_SECRET_KEY
