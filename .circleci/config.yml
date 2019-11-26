@@ -7,5 +7,5 @@ jobs:
       - checkout
       - run: npm install
       - run: npm run build
-      - run: npm install serverless -g
-      - run: serverless config credentials --provider $PROVIDER --key $PROVIDER_KEY --secret $PROVIDER_SECRET_KEY
+      - run: npm install serverless
+      - run: ./node_modules/.bin/serverless config credentials --provider $PROVIDER --key $PROVIDER_KEY --secret $PROVIDER_SECRET_KEY
