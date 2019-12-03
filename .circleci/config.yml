@@ -12,13 +12,17 @@ commands:
   restore_node:
     steps:
       - restore_cache:
-        key: node-v1-{{ checksum "package.json" }}-{{ arch }}-{{ .Branch }}
+          key: node-v1-{{ checksum "package.json" }}-{{ arch }}-{{ .Branch }}
   save_node:
     steps:
       - save_cache:
-        key: node-v1-{{ checksum "package.json" }}-{{ arch }}-{{ .Branch }}
-        paths:
-          - node_modules
+          key: node-v1-{{ checksum "package.json" }}-{{ arch }}-{{ .Branch }}
+          paths:
+            - node_modules
+  store_build_artifacts:
+    steps:
+      - store_artifacts:
+          path: .next
 
 jobs:
   build:
@@ -50,10 +54,11 @@ jobs:
       - save_node
       - aws-cli/install
       - aws-cli/configure:
-        aws-access-key-id: << parameters.aws-access-key-id >>
-        aws-secret-access-key: << parameters.aws-secret-access-key >>
-        aws-region: <<parameters.aws-region >>
+          aws-access-key-id: << parameters.aws-access-key-id >>
+          aws-secret-access-key: << parameters.aws-secret-access-key >>
+          aws-region: <<parameters.aws-region >>
       - run: npm deploy:<< parameters.env >>
+      - store_build_artifacts
 
 workflows:
   build_and_deploy:
