@@ -73,7 +73,7 @@ workflows:
           aws-region: AWS_DEFAULT_REGION
 
           requires:
-            - node
+            - build
           name: deploy_dev
           filters:
             branches:
