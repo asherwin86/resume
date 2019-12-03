@@ -1,4 +1,4 @@
-version: 2
+version: 2.1
 
 orbs:
   aws-cli: circleci/aws-cli@0.1.13
@@ -8,17 +8,17 @@ executors:
     docker:
       - image: circleci/node:10.17.0
 
-
-restore_node:
+commands:
+  restore_node:
     steps:
       - restore_cache:
-          key: node-v1-{{ checksum "package.json" }}-{{ arch }}-{{ .Branch }}
-save_node:
+        key: node-v1-{{ checksum "package.json" }}-{{ arch }}-{{ .Branch }}
+  save_node:
     steps:
       - save_cache:
-          key: node-v1-{{ checksum "package.json" }}-{{ arch }}-{{ .Branch }}
-          paths:
-            - node_modules
+        key: node-v1-{{ checksum "package.json" }}-{{ arch }}-{{ .Branch }}
+        paths:
+          - node_modules
 
 jobs:
   build:
@@ -29,12 +29,7 @@ jobs:
       - restore_node
       - run: npm install
       - save_node
-      - aws-cli/install
-      - aws-cli/configure:
-        aws-access-key-id: << parameters.aws-access-key-id >>
-        aws-secret-access-key: << parameters.aws-secret-access-key >>
-        aws-region: <<parameters.aws-region >>
-      - run: npm deploy:<< parameters.env >>
+
   deploy:
     parameters:
       env:
@@ -64,3 +59,32 @@ workflows:
   build_and_deploy:
     jobs:
       - build
+
+      # dev
+      - deploy: &deploy
+          env: dev
+          aws-access-key-id: AWS_ACCESS_KEY_ID
+          aws-secret-access-key: AWS_SECRET_ACCESS_KEY
+          aws-region: AWS_DEFAULT_REGION
+
+          requires:
+            - node
+          name: deploy_dev
+          filters:
+            branches:
+              only: dev
+            tags:
+              ignore: /.*/
+
+      # production
+      - deploy:
+          <<: *deploy
+
+          env: production
+
+          name: deploy_production
+          filters:
+            branches:
+              ignore: /.*/
+            tags:
+              only: /^v.+$/
