@@ -21,7 +21,7 @@ const iconStyle = {
 }
 
 const listItems = brands.map((brand) =>
-  <Col>
+  <Col key={brand}>
     <FontAwesomeIcon icon={['fab', brand]} />
   </Col>
 );
