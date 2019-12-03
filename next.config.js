@@ -1,6 +1,6 @@
 // next.config.js
 const withCSS = require('@zeit/next-css')
 module.exports = withCSS({
-    target: 'serverless',
-    assetPrefix: '/dev/'
+    target: 'serverless'//,
+    //assetPrefix: '/dev/'
 })

@@ -1,11 +1,66 @@
 version: 2
-jobs:
-  build:
+
+orbs:
+  aws-cli: circleci/aws-cli@0.1.13
+
+executors:
+  default:
     docker:
       - image: circleci/node:10.17.0
+
+
+restore_node:
+    steps:
+      - restore_cache:
+          key: node-v1-{{ checksum "package.json" }}-{{ arch }}-{{ .Branch }}
+save_node:
+    steps:
+      - save_cache:
+          key: node-v1-{{ checksum "package.json" }}-{{ arch }}-{{ .Branch }}
+          paths:
+            - node_modules
+
+jobs:
+  build:
+    executor:
+      name: default
     steps:
       - checkout
+      - restore_node
       - run: npm install
-      - run: npm install serverless
-      - run: ./node_modules/.bin/serverless config credentials --provider $PROVIDER --key $PROVIDER_KEY --secret $PROVIDER_SECRET_KEY
-      - run: ./node_modules/.bin/serverless deploy -v
+      - save_node
+      - aws-cli/install
+      - aws-cli/configure:
+        aws-access-key-id: << parameters.aws-access-key-id >>
+        aws-secret-access-key: << parameters.aws-secret-access-key >>
+        aws-region: <<parameters.aws-region >>
+      - run: npm deploy:<< parameters.env >>
+  deploy:
+    parameters:
+      env:
+        type: enum
+        enum: ["production", "dev"]
+      aws-access-key-id:
+        type: env_var_name
+      aws-secret-access-key:
+        type: env_var_name
+      aws-region:
+        type: env_var_name
+    executor:
+      name: default
+    steps:
+      - checkout
+      - restore_node
+      - run: npm install
+      - save_node
+      - aws-cli/install
+      - aws-cli/configure:
+        aws-access-key-id: << parameters.aws-access-key-id >>
+        aws-secret-access-key: << parameters.aws-secret-access-key >>
+        aws-region: <<parameters.aws-region >>
+      - run: npm deploy:<< parameters.env >>
+
+workflows:
+  build_and_deploy:
+    jobs:
+      - build

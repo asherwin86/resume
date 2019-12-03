@@ -8,11 +8,15 @@ provider:
 
 plugins:
   - serverless-nextjs-plugin
+  - serverless-domain-manager
 
 custom:
   name: resume
   serverless-nextjs:
     assetsBucketName: 'resume-assets-${self:provider.stage}'
+  customDomain:
+    ${file(./serverless.${self:provider.stage}.yml):custom.customDomain}
+
 package:
   # exclude everything
   # page handlers are automatically included by the plugin

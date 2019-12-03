@@ -1,0 +1,7 @@
+custom:
+  customDomain:
+    domainName: 'www.anthonysresume.com'
+    basePath: ''
+    stage: ${self:provider.stage}
+    createRoute53Record: true
+    endpointType: 'regional'
