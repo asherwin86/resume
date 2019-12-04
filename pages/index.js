@@ -6,7 +6,6 @@ import Experience from '../components/experience'
 import Education from '../components/education'
 import Skills from '../components/skills'
 import Interests from '../components/interests'
-import Awards from '../components/awards'
 import { Container } from 'reactstrap';
 import PropTypes from 'prop-types';
 import { Scrollspy } from 'reactstrap-scrollspy'
@@ -29,7 +28,7 @@ class Home extends React.Component {
         </Head>
 
         <Scrollspy
-          names={['navbar', 'about', null, 'experience', null, 'education', null, 'skills', null, 'interests', null, 'awards']}
+          names={['navbar', 'about', null, 'experience', null, 'education', null, 'skills', null, 'interests']}
           homeIndex={1}
         >
           <Navigation />
@@ -42,8 +41,6 @@ class Home extends React.Component {
           <Skills />
           <hr className="m-0" />
           <Interests />
-          <hr className="m-0" />
-          <Awards />
         </Scrollspy>
       </div>
     )

@@ -13,7 +13,11 @@ const brands = [
   'bitbucket',
   'jira',
   'docker',
-  'php'
+  'php',
+  'python',
+  'bootstrap',
+  'linux',
+  'laravel'
 ];
 
 const iconStyle = {

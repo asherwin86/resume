@@ -50,11 +50,6 @@ const Navigation = () => {
               <NavLink className="js-scroll-trigger" href="#interests">Interests</NavLink>
             </ScrollspyNavLink>
           </NavItem>
-          <NavItem>
-            <ScrollspyNavLink name="awards">
-              <NavLink className="js-scroll-trigger" href="#awards">Awards</NavLink>
-            </ScrollspyNavLink>
-          </NavItem>
         </Nav>
       </Collapse>
     </Navbar>

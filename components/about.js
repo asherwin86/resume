@@ -36,9 +36,6 @@ class About extends React.Component {
           </Row>
           <Row>
             <Col>
-              <h2 className="subheading mb-5">70A Shady Grove, Forest Hill, 3131
-                <a href="mailto:anthony.j.sherwin@gmail.com"> anthony.j.sherwin@gmail.com</a>
-              </h2>
             </Col>
           </Row>
           <Row>
@@ -47,16 +44,17 @@ class About extends React.Component {
             </Col>
           </Row>
           <Row className="social-icons">
-            <Col xs="1" className="mr-3">
-            <a href="https://www.linkedin.com/in/anthony-sherwin-404a942b">
-              <FontAwesomeIcon icon={['fab', 'linkedin']} inverse className="w-50" />
-            </a>
+            <Col xs="1" className="mr-4">
+              <a href="https://www.linkedin.com/in/anthony-sherwin-404a942b">
+                <FontAwesomeIcon icon={['fab', 'linkedin']} inverse className="w-50" />
+              </a>
             </Col>
-            <Col xs="1" className="mr-3">
-            <a href="https://github.com/asherwin86/resume">
-              <FontAwesomeIcon icon={['fab', 'github']} className="w-50" />
-            </a>
+            <Col className="mr-4">
+              <a href="https://github.com/asherwin86/resume">
+                <FontAwesomeIcon icon={['fab', 'github']} className="w-50" />
+              </a>
             </Col>
+            <Col xs="10"/>
           </Row>
         </div>
       </section>
