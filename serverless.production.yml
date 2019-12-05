@@ -1,6 +1,7 @@
 custom:
   customDomain:
     domainName: 'www.anthonysresume.com'
+    certificateArn: 'arn:aws:acm:ap-southeast-2:683428949180:certificate/49d16fa0-ef7b-4996-a463-28d6a0d7d278'
     basePath: ''
     stage: ${self:provider.stage}
     createRoute53Record: true

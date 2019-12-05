@@ -82,11 +82,15 @@ workflows:
               ignore: /.*/
 
       # production
-      - deploy:
-          <<: *deploy
+      - deploy: &deploy
 
           env: production
+          aws-access-key-id: PROVIDER_KEY
+          aws-secret-access-key: PROVIDER_SECRET_KEY
+          aws-region: PROVIDER_REGION
 
+          requires:
+            - build
           name: deploy_production
           filters:
             branches:
