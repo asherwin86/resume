@@ -40,7 +40,7 @@ class About extends React.Component {
           </Row>
           <Row>
             <Col>
-              <p className="lead mb-5">A results-driven Software Engineer with over {this.state.date} years' experience in assessing business needs, defining requirements and developing software solutions. Skilled in managing projects, developing new code, software design, building robust and scalable software, working effectively within a close knit team environment and achieving strict deadlines.</p>
+              <p className="lead mb-5">I am a results-driven software engineer with over 11 years’ experience. I am skilled in managing projects, building robust and scalable software, and achieving strict deadlines by being an effective team Technical Lead.</p>
             </Col>
           </Row>
           <Row className="social-icons">
