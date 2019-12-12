@@ -19,7 +19,7 @@ const Navigation = () => {
       <NavbarBrand href="#page-top" className="js-scroll-trigger">
         <span className="d-block d-lg-none">Anthony Sherwin</span>
         <span className="d-none d-lg-block">
-          {/*Image*/}
+          <img className="img-fluid img-profile rounded-circle mx-auto mb-2" src="/portrait.jpg" alt="my image" />
         </span>
       </NavbarBrand>
       <NavbarToggler onClick={toggle}/>

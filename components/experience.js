@@ -11,7 +11,7 @@ const Experience = () => (
           <div className="subheading mb-3">Make It Mine Pty Ltd</div>
           <ul>
             <li>Ensuring code quality</li>
-            <li>Introduced CI/CD for the web team projects.</li>
+            <li>Introduced CI/CD for web team projects.</li>
             <li>Moved the website onto Docker and AWS Infrastructure.</li>
             <li>Created .NET core middleware to interface between interanlly created CRM and the website.</li>
             <li>Used middleware to provide an OAuth implementation to the website.</li>
@@ -43,7 +43,7 @@ const Experience = () => (
           <ul>
             <li>Extended and maintained a SaaS Security reporting website written in Python 3 using technologies such as Alembic, SQLAlchemy, Pyramid and jQuery.</li>
             <li>Maintained and improved PHP application used for secure donations through third party frameworks.</li>
-            <li>Interfaced with prospective clients to provide possible software solutions</li>
+            <li>Interfaced with prospective clients to provide software solutions</li>
           </ul>
         </div>
         <div className="resume-date text-md-right">
@@ -56,7 +56,7 @@ const Experience = () => (
           <h3 className="mb-0">Web Developer</h3>
           <div className="subheading mb-3">I Need Helpers</div>
           <ul>
-            <li>Created time critical application in PHP for the AFL Players Association.</li>
+            <li>Created a time critical application in PHP for the AFL Players Association.</li>
             <li>PHP using the SLIM Framework for a RESTful API and Angular app project.</li>
           </ul>
         </div>
@@ -70,7 +70,7 @@ const Experience = () => (
           <h3 className="mb-0">Development Projects Co-ordinator</h3>
           <div className="subheading mb-3">Asta Solutions</div>
           <ul>
-            <li>Project-managed website creation for large international customers, managing and exceeded their expectations by delivering them within scope, time and budget.</li>
+            <li>Project-managed website creation for large international customers, managing and exceeded their expectations by delivering them within scope, time frame and budget.</li>
             <li>Developed comprehensive project management plans including internal resource planning for the team of 15 software developers</li>
           </ul>
         </div>
@@ -85,7 +85,7 @@ const Experience = () => (
           <div className="subheading mb-3">Dynamic Ratings</div>
           <ul>
             <li>Solely created and maintained a PHP & jQuery website which interfaced with a unique backend.</li>
-            <li>Extended website to allow customers to setup and configure the backend.</li>
+            <li>Extended the website to allow customers to setup and configure the backend.</li>
             <li>Support for legacy products including new Java applets.</li>
           </ul>
         </div>
